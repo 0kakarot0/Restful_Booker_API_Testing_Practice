@@ -23,7 +23,7 @@ public class ReportGenerator {
     }
 
     public static void logError(String message) {
-        test.error(message);
+        test.fail(message);
     }
 
     public static void flushReport() {
