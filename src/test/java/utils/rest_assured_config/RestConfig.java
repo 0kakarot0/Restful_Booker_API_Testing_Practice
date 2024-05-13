@@ -3,6 +3,9 @@ package utils.rest_assured_config;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RestConfig {
 
     public static void setUp(){
@@ -18,6 +21,13 @@ public class RestConfig {
     public static RequestSpecification getRequestSpecification(){
         return RestAssured.
                 given().
-                header("Content-Type", "application/json").log().all();
+                headers(headers()).log().all();
+    }
+
+    private static Map<String, String> headers(){
+        Map<String, String> allHeaders = new HashMap<>();
+        allHeaders.put("Content-Type", "application/json");
+        allHeaders.put("Accept", "application/json");
+        return allHeaders;
     }
 }
