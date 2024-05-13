@@ -1,6 +1,7 @@
 package utils.request_builder;
 
 import io.restassured.response.Response;
+import utils.rest_assured_config.RestConfig;
 
 import static io.restassured.RestAssured.given;
 
@@ -10,7 +11,7 @@ public class RequestBuilder {
     }
 
     public static Response postResponse(String endPoint, Object object) {
-        return given().body(object).when().post(endPoint);
+        return given().spec(RestConfig.getRequestSpecification()).body(object).when().post(endPoint);
     }
 
     public static Response putResponse(String endPoint, Object object) {
