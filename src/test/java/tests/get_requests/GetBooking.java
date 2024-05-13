@@ -20,7 +20,7 @@ public class GetBooking extends TestBase {
 
     @Test
     public void getSingleBooking() {
-        Response response = RequestBuilder.getResponse("booking/2");
+        Response response = RequestBuilder.getResponse("booking/2158");
         String responseBody = ResponseParser.getResponseAsString(response);
         System.out.println(responseBody.contains("\"firstname\":\"Jim\""));
 
