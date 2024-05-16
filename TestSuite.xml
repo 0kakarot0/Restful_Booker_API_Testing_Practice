@@ -1,12 +1,15 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Sample Test Suite">
+<suite name="API Test Suite">
     <listeners>
         <listener class-name="services.listeners.TestListener"/>
     </listeners>
     <test name="Sample Test">
         <classes>
-            <class name="tests.get_requests.GetBooking"/>
             <class name="tests.post_requests.PostBooking"/>
+            <class name="tests.get_requests.GetBooking"/>
+            <class name="tests.patch_requests.PartialUpdateBooking"/>
+            <class name="tests.put_request.UpdateBooking"/>
+            <class name="tests.delete_requests.DeleteBooking"/>
         </classes>
     </test>
 </suite>

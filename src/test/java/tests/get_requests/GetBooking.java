@@ -4,6 +4,7 @@ import base.TestBase;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.file_utils.BookingConfigUtils;
 import utils.request_builder.RequestBuilder;
 import utils.response_parser.ResponseParser;
 
@@ -20,7 +21,7 @@ public class GetBooking extends TestBase {
 
     @Test
     public void getSingleBooking() {
-        Response response = RequestBuilder.getResponse("booking/2158");
+        Response response = RequestBuilder.getResponse("booking/"+ BookingConfigUtils.getProperty("bookingid"));
         String responseBody = ResponseParser.getResponseAsString(response);
         System.out.println(responseBody.contains("\"firstname\":\"Jim\""));
 

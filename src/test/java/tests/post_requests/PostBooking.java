@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.data_serialization.JSON_Serialization;
+import utils.file_utils.BookingConfigUtils;
 import utils.request_builder.RequestBuilder;
 import utils.response_parser.ResponseParser;
 
@@ -33,7 +34,11 @@ public class PostBooking extends TestBase {
         String responseBody = ResponseParser.getResponseAsString(response);
         System.out.println(responseBody);
 
-        Assert.assertEquals(response.statusCode(),200);
+        String bookingId = ResponseParser.getJsonValueAsString(response, "bookingid");
+        BookingConfigUtils.setProperty("bookingid", bookingId);
+
+
+        Assert.assertEquals(response.statusCode(), 200);
 
     }
 
